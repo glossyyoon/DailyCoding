@@ -1,1 +1,2 @@
-print(9%10007)
+m, n = map(int, input().split(" "))
+print(m, n)
