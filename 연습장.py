@@ -1,2 +1,4 @@
-m, n = map(int, input().split(" "))
-print(m, n)
+arr = []
+num = map(int, input().split(" "))
+arr.append(num)
+print(arr)
