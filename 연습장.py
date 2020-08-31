@@ -1,4 +1,3 @@
-arr = []
-num = map(int, input().split(" "))
-arr.append(num)
-print(arr)
+a = 123
+
+print(len(str(a)))
