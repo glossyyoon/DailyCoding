@@ -1,3 +1,3 @@
-a = 123
-
-print(len(str(a)))
+a = ['1']
+b = ['1']
+print(a==b)
