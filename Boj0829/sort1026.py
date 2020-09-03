@@ -1,12 +1,8 @@
-num = int(input())
+import sys
 result = 0
-A = list(map(int, input().split(" ")))
-A.sort()
-B = []
-for b in range(len(A)-1, -1, -1):
-    B.append(A[b])
-for i in range(num):
-    result += A[i]*B[i]
-print(A)
-print(B)
+n = int(input())
+a = list(map(int, input().split(' ')))
+b = list(map(int, input().split(' ')))
+for _ in range(n):
+    result += a.pop(a.index(min(a)))*b.pop(b.index(max(b)))
 print(result)
