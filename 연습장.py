@@ -1,5 +1,3 @@
-import sys
-sys.stdin = open("input.txt", 'r')
-s = input()
-k = input()
-print(int(k in s))
+a = [1, 2, 3, 4, 5]
+a.pop(0)
+print(a)
