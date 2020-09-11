@@ -10,9 +10,9 @@ result_bfs = []
 for _ in range(n+1):
     relation.append([])
 for i in range(m):
-        a, b = map(int, sys.stdin.readline().split(" "))
-        relation[a].append(b)
-        relation[b].append(a)
+    a, b = map(int, sys.stdin.readline().split(" "))
+    relation[a].append(b)
+    relation[b].append(a)
 def dfs(start):
     check_dfs[start]=1
     result_dfs.append(start)
