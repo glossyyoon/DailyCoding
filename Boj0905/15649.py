@@ -2,7 +2,7 @@ import sys
 n, m = map(int, sys.stdin.readline().split())
 check = [0 for _ in range(n+1)]
 result = [0 for _ in range(m)]
-def permutation(index, n):
+def permutation(index):
     if index==m:
         for i in range(n):
             print(result[i], end = ' ')
@@ -13,6 +13,6 @@ def permutation(index, n):
                 continue
             check[i]=1
             result[index]=i
-            permutation(index+1, n)
+            permutation(index+1)
             check[i] = 0
-permutation(0, n)
+permutation(0)
