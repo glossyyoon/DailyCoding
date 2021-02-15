@@ -1,5 +1,5 @@
 import re
 n = int(input())
-result = hex(n)
-results = re.sub(r'[\d][x]', '', result)
-print(results.upper())
+octane = oct(n)
+result = re.sub(r'[\d][o]', '', octane)
+print(result)
