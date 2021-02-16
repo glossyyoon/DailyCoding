@@ -9,7 +9,7 @@ def bfs(start):
     while(len(queue)!=0):
         x = queue.pop(0)
         print(x)
-        for i in range(len(a[x])):
+        for i in range(len(a[x])-1):
             y = a[x][i]
             if(c[y]!=True):
                 queue.append(y)
