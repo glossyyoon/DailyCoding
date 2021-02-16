@@ -1,3 +1,2 @@
-date = input()
-year, month, day = map(int, date.split('.'))
-print("%d.%02d.%02d" % (year, month, day))
+year, month, day = map(int, input().split("."))
+print("%.02d-%.02d-%d" % (day, month, year))
