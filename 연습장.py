@@ -1,2 +1,2 @@
-year, month, day = map(int, input().split("."))
-print("%.02d-%.02d-%d" % (day, month, year))
+a, b, c = map(int, input().split(" "))
+print(a+b+c, round((a+b+c)/3, 2))
