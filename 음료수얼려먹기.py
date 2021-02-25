@@ -1,5 +1,5 @@
 def dfs(x, y):
-    if x<=-1 or y<=-1 or x>a-1 or y>b-1:
+    if x<=-1 or y<=-1 or x>=n or y>=m:
         return False
     if graph[x][y] == 0:
         graph[x][y] = 1
@@ -10,14 +10,15 @@ def dfs(x, y):
         return True
     return False
 
-a, b = map(int, input().split(" "))
+n, m = map(int, input().split())
 graph = []
+for i in range(n):
+    graph.append(list(map(int, input())))
 result = 0
-for i in range(a):
-    graph.append(list(input()))
 
-for i in range(a):
-    for j in range(b):
+
+for i in range(n):
+    for j in range(m):
         if dfs(i, j) == True:
             result += 1
 print(result)
