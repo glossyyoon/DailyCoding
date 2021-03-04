@@ -23,16 +23,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-#   1 def dfs(graph, start_node):
-#   2     visit = list()
-#   3     stack = list()
-#   4
-#   5     stack.append(start_node)
-#   6
-#   7     while stack:
-#   8         node = stack.pop()
-#   9         if node not in visit:
-#  10             visit.append(node)
-#  11             stack.extend(graph[node])
-#  12
-#  13     return visit
