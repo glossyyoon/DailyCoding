@@ -12,7 +12,7 @@ def dfs(x, y):
 
 n, m = map(int, input().split())
 graph = []
-for i in range(n):
+for i in range(m-1):
     graph.append(list(map(int, input())))
 result = 0
 
