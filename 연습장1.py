@@ -1,3 +1,3 @@
 names = ["apple"]
-names.append("banana")
+names.insert(1, "banana")
 print(names)
