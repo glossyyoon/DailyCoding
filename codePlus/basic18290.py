@@ -26,7 +26,9 @@ def go(prev, cnt, s):
 
         if ok:
             c[x][y] = True  #방문표시
-            go(x * n + y, cnt + 1, s + a[x][y])  #재귀
+            go(
+                x * m + y, cnt + 1, s + a[x][y]
+            )  #(i, j)을 오름차순으로 0, 1, 2, 3..이라고 할 때 (i, j) = i*M + j라고 할 수 있다.
             c[x][y] = False  #다시 False로 해줘야 다음 j에서 또 비교
 
 
