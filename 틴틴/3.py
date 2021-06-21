@@ -1,7 +1,6 @@
-a = int(input())
 while True:
+    a = int(input("숫자를 입력해주세요: "))
     if a != 0:
-        print("다시 입력하세요")
-        a = int(input())
+        a = int(input("숫자를 입력해주세요: "))
     else:
         break
