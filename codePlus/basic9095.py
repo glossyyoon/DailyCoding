@@ -1,19 +1,19 @@
 t = int(input())
-num = []
+a = []
 for i in range(t):
-    num.append(int(input()))
+    a.append(int(input()))
 
 
 def go(count, s, n):
     if s > n:
         return 0
-    if count == n:
+    if s == n:
         return 1
-    now = 0
-    for i in range(3):
-        now += go(count + 1, s + i, n)
-    return now
+    result = 0
+    for i in range(1, 4):
+        result += go(count + 1, s + i, n)
+    return result
 
 
-for j in num:
+for j in a:
     print(go(0, 0, j))

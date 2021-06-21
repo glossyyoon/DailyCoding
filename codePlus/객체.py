@@ -4,18 +4,34 @@
 #모든 객체는 identity, type, value를 갖는다.
 #id = 메모리 상의 주소
 
-a = "a"  #불변객체는 id가 항상 같다
+a = 1  #불변객체는 id가 항상 같다(값이 같을 때)
 b = a
-c = "a"
+
+c = 1.0
+d = 1
 print(id(a))
+print(id(b))
 print(id(c))
-print(type(a))
+print(id(d))
+
+print(a == b)  #같음
+print(a is b)  #같음
+print(a == c)  #같음
+print(a is c)  #다름
 
 i = [1, 2, 3]  #가변객체는 id가 다르다.
-j = i
 k = [1, 2, 3]
+i is k
+print(id(i))
+print(id(j))
+print(id(k))
 
-print(a == b)
-print(a is b)
-print(a == c)
-print(a is c)
+print(i == k)  #같음
+print(i is k)  #다름
+
+t = (1, 2, 3)
+y = (1, 2, 3)
+print(t is y)  #튜플이므로 불변
+
+i = 2
+j = 3
