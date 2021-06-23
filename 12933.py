@@ -1,10 +1,9 @@
 sound = input()
-word = ['q', 'u', 'a', 'c', 'k']
 visited = [False] * len(sound)
 count = 0
-index = 0
 if len(sound) % 5 != 0:
     print(-1)
+    exit()
 
 
 def solve(start):
