@@ -1,1 +1,1 @@
-print([0 for _ in range(4)])
+print(len([[1], [2]]))

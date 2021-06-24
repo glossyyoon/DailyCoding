@@ -5,7 +5,6 @@ add = 0
 count = [i for i in range(1, n + 1)]
 temp = 0
 q = 0
-w = 0
 
 for i in range(5):
     add += course[i]
@@ -24,4 +23,5 @@ while temp <= k:
     findCourse(k, q)
     course = [course[-1]] + course[-2::-1]
     count = [count[-1]] + count[-2::-1]
+
 print(l[k])
