@@ -1,57 +1,50 @@
-bingo = [list(map(int, input().split())) for i in range(5)]
-nums = [list(map(int, input().split())) for i in range(5)]
+import sys
 
-visited = [[False] * 5 for _ in range(5)]
-row_visited = [False] * 5
-column_visited = [True] * 5
-x_visited = [False] * 2  #0:오른쪽 위, 1:오른쪽 아래
+bingo = [list(map(int, sys.stdin.readline().split())) for i in range(5)]
+order = [list(map(int, sys.stdin.readline().split())) for i in range(5)]
+count = 0
+result = 0
 
 
-def makeBingo():
+def isBingo(bingo):
+    global count
     for i in range(5):
-        if all(visited[i]):
-            row_visited[i] = True
-    for i in range(5):
-        temp = list()
         for j in range(5):
-            temp.append(visited[j][i])
-        if all(temp):
-            column_visited[i] = True
+            if bingo[i][j]:
+                break
+            elif all(not bingo[i][j]):  #가로
+                count += 1
+                print("bingo count+1", bingo)
+                break
+            elif j == 4:  #세로
+                count += 1
+                print("bingo count+2", bingo)
+                break
+            elif i == j and i == 4:  #오른쪽아래 대각선
+                count += 1
+                print("bingo count+3", bingo)
+                break
+            elif j == 4 - 1 and i == 4:
+                count += 1
+                print("bingo count+4", bingo)
+                break
 
-    temp_up = list()
-    temp_down = list()
 
+def findNum(n):
     for i in range(5):
-        temp_up.append(visited[i][i])
-        temp_down.append(visited[i][4 - i])
-    if all(temp_down):
-        x_visited[0] = True
-        x_visited[1] = True
+        for j in range(5):
+            if bingo[i][j] == n:
+                bingo[i][j] = 0
+                break
 
 
-def countBingo():
-    count = 0
-    for i in range(5):
-        if row_visited[i]:
-            count += 1
-        if column_visited[i]:
-            count += 1
-    for i in range(2):
-        if x_visited[i]:
-            count += 1
-    return count
-
-
-for j in range(len(nums)):
-    x = 0
-    for i in range(5):
-        if nums[j] in bingo[i]:
-            x = i
-            break
-
-    y = bingo[x].index(nums[j])
-    visited[x][y] = True
-    makeBingo()
-    if countBingo >= 3:
-        print(j + 1)
-        break
+for i in range(5):
+    for j in range(5):
+        num = order[i][j]
+        findNum(num)
+        result += 1
+        isBingo(bingo)
+        if count == 3:
+            print(result)
+            print(bingo)
+            sys.exit()

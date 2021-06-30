@@ -1,4 +1,3 @@
-for i in range(101):
-    if i % 2 != 0:
-        continue
-    print(i)
+mylist = [0, 1, 1]
+x = all(mylist)
+print(x)
