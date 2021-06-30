@@ -1,50 +1,52 @@
 import sys
 
+order = []
 bingo = [list(map(int, sys.stdin.readline().split())) for i in range(5)]
-order = [list(map(int, sys.stdin.readline().split())) for i in range(5)]
-count = 0
+for i in range(5):
+    w = list(map(int, input().split()))
+    for j in w:
+        order.append(j)
 result = 0
 
 
 def isBingo(bingo):
-    global count
+    count = 0
+    for i in range(5):  #가로
+        summ = 0
+        for j in range(5):
+            summ += bingo[i][j]
+        if summ == 0:
+            count += 1
+    for i in range(5):  #세로
+        summ = 0
+        for j in range(5):
+            summ += bingo[j][i]
+        if summ == 0:
+            count += 1
+    summ = 0
     for i in range(5):
         for j in range(5):
-            if bingo[i][j]:
-                break
-            elif all(not bingo[i][j]):  #가로
-                count += 1
-                print("bingo count+1", bingo)
-                break
-            elif j == 4:  #세로
-                count += 1
-                print("bingo count+2", bingo)
-                break
-            elif i == j and i == 4:  #오른쪽아래 대각선
-                count += 1
-                print("bingo count+3", bingo)
-                break
-            elif j == 4 - 1 and i == 4:
-                count += 1
-                print("bingo count+4", bingo)
-                break
+            if i == j:
+                summ += bingo[i][j]
+    if summ == 0:
+        count += 1
 
-
-def findNum(n):
+    summ = 0
     for i in range(5):
         for j in range(5):
-            if bingo[i][j] == n:
-                bingo[i][j] = 0
-                break
+            if j == 4 - i:
+                summ += bingo[i][j]
+    if summ == 0:
+        count += 1
+    return count
 
 
-for i in range(5):
-    for j in range(5):
-        num = order[i][j]
-        findNum(num)
-        result += 1
-        isBingo(bingo)
-        if count == 3:
-            print(result)
-            print(bingo)
-            sys.exit()
+for idx, num in enumerate(order):
+    for m in bingo:
+        if num in m:
+            m[m.index(num)] = 0
+            break
+    res = isBingo(bingo)
+    if res >= 3:
+        print(idx + 1)
+        break
