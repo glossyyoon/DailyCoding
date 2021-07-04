@@ -1,20 +1,42 @@
-25
-0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0
-1
-1 1
+left, right = input().split()
+strings = list(input())
 
+keyboard = ['qwertyuiop', 'asdfghjkl', 'zxcvbnm']
+mo = 'yuiophjklbnm'
 
-1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 
-1 0 1 0 1
+xl, yl, xr, yr = None, None, None, None
 
-1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0
-1 0 1 0 1
-10
-1 1 1 1 1 0 1 0 0 1
-4
-1 4
-2 6
-1 3
-2 3
-1 1 1 0 0 0 0 1 1 1
-1 1 1 0 0 0 0 1 1 1
+for i in range(len(keyboard)):
+    if left in keyboard[i]:
+        xl = i
+        yl = keyboard[i].index(left)
+
+    if right in keyboard[i]:
+        xr = i
+        yr = keyboard[i].index(right)
+
+time = 0
+for string in strings:
+    time += 1
+    if string in mo:
+        for i in range(len(keyboard)):
+            if string in keyboard[i]:
+                nx = i
+                ny = keyboard[i].index(string)
+
+                time += abs(nx - xr) + abs(ny - yr)
+                xr = nx
+                yr = ny
+                break
+    else:
+        for i in range(len(keyboard)):
+            if string in keyboard[i]:
+                nx = i
+                ny = keyboard[i].index(string)
+
+                time += abs(nx - xl) + abs(ny - yl)
+                xl = nx
+                yl = ny
+                break
+
+print(time)
