@@ -5,7 +5,7 @@ word = list(sys.stdin.readline())
 leftKey = ['qwert', 'asdfg', 'zxcv']
 rightKey = ['yuiop', 'hjkl', 'bnm']
 count = 0
-
+xl, yl, xr, yr = None, None, None, None
 for i in range(3):
     if L in leftKey[i]:
         xl = i

@@ -18,25 +18,20 @@ for i in range(len(keyboard)):
 time = 0
 for string in strings:
     time += 1
-    if string in mo:
-        for i in range(len(keyboard)):
-            if string in keyboard[i]:
-                nx = i
-                ny = keyboard[i].index(string)
-
-                time += abs(nx - xr) + abs(ny - yr)
-                xr = nx
-                yr = ny
-                break
-    else:
-        for i in range(len(keyboard)):
-            if string in keyboard[i]:
-                nx = i
-                ny = keyboard[i].index(string)
-
-                time += abs(nx - xl) + abs(ny - yl)
-                xl = nx
-                yl = ny
-                break
+    for j in range(3):
+        if string in keyboard[j]:
+            nx = j
+            ny = keyboard[j].index(string)
+            time += abs(xl - nx) + abs(yl - ny)
+            xl = nx
+            yl = ny
+            break
+        elif string in mo[j]:
+            nx = j
+            ny = mo[j].index(string)
+            time += abs(xr - nx) + abs(yr - ny)
+            xr = nx
+            yr = ny
+            break
 
 print(time)
