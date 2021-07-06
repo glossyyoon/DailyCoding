@@ -1,21 +1,18 @@
+#시간초과
 import sys
 
 N, M, R = map(int, sys.stdin.readline().split())
-arr = []
-
-for i in range(N):
-    arr.append(list(map(int, sys.stdin.readline().split())))
-
+arr = [list(map(int, sys.stdin.readline().split())) for _ in range(N)]
+print("arr=", arr)
 copyArr = [item[:] for item in arr]
 
 boxWidth = M // 2
 boxHeight = N // 2
 
-for k in range(R):  #count = 0, 1, 2
-    count = boxHeight
+
+def rotating(count):  #count = 0, 1, 2
     boxW = M - count * 2  #7, 5, 3
     boxH = N - count * 2
-    copyArr = [item[:] for item in arr]
     for i in range(count, count + boxH):
         for j in range(count, count + boxW):
             if i == count and j > count:  #상
@@ -30,11 +27,12 @@ for k in range(R):  #count = 0, 1, 2
             elif j == count + boxW - 1 and i != count + boxH:  #우
                 arr[i - 1][j] = copyArr[i][j]
 
-# while R != 0:
-#     for i in range(boxHeight):
-# rotating(i)  #꼭짓점 0,0 1,1 2,2
-# copyArr = [item[:] for item in arr]
-# R -= 1
+
+while R != 0:
+    for i in range(boxHeight):
+        rotating(i)  #꼭짓점 0,0 1,1 2,2
+    copyArr = [item[:] for item in arr]
+    R -= 1
 
 for i in arr:
     for j in i:
