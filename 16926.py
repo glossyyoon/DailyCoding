@@ -3,7 +3,7 @@ import sys
 
 N, M, R = map(int, sys.stdin.readline().split())
 arr = [list(map(int, sys.stdin.readline().split())) for _ in range(N)]
-print("arr=", arr)
+
 copyArr = [item[:] for item in arr]
 
 boxWidth = M // 2
