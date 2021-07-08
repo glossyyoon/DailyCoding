@@ -24,5 +24,6 @@ for i in func:
             b = stack.pop()
             a = stack.pop()
             stack.append(a - b)
+
 for i in stack:
     print("%.2f" % i)
