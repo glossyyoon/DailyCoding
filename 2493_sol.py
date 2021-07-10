@@ -6,7 +6,7 @@ stack = []
 answer = []
 for i in range(N):
     while stack:
-        if stack[-1][1] >= top[i]:
+        if stack[-1][1] > top[i]:  #무조건 마지막이랑 비교해서 top이 더 작으면 pop. 더 크면 append
             answer.append(stack[-1][0] + 1)
             break
         else:
