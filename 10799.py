@@ -1,17 +1,15 @@
 import sys
 
 pipe = list(sys.stdin.readline())
-result = []
+stack = []
 count = 0
 for i in range(len(pipe)):
     if pipe[i] == "(":
-        result.append("(")
-    else:
-        if pipe[i] == ")" and pipe[i - 1] == "(":
-            result.pop()
-            count += len(result)
-        elif pipe[i] == ")" and pipe[i - 1] == ")":
-            result.pop()
-            count += 1
-
+        stack.append("(")
+    elif pipe[i] == ")" and pipe[i - 1] == "(":
+        stack.pop()
+        count += len(stack)
+    elif pipe[i] == ")" and pipe[i - 1] == ")":
+        stack.pop()
+        count += 1
 print(count)
