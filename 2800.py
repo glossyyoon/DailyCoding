@@ -2,24 +2,25 @@ import sys
 from itertools import combinations
 
 func = list(sys.stdin.readline())
-p, prob_idx = [], []
-for idx, i in enumerate(func):  #괄호가 있던 위치를 저장하고 괄호를 빈 문자열로 바꾸기
+tmp, stack = [], []
+result = []
+for idx, i in enumerate(func):
     if i == "(":
+        tmp.append(idx)
         func[idx] = ""
-        p += [idx]
     elif i == ")":
+        t = tmp.pop()
+        stack.append([t, idx])
         func[idx] = ""
-        prob_idx += [[p.pop(), idx]]
-stack = []
-for i in range(len(prob_idx)):
-    for j in combinations(prob_idx, i):  #수열 조합을 만들어주는 combinations함수를 사용
+for i in range(len(stack)):
+    p, q = 0, 0
+    for j in combinations(stack, i):
         F = func[:]
-        for v, w in j:
-            F[v] = "("
-            F[w] = ")"
-        stack.append("".join(F))
-stack = set(stack)
-stack = sorted(stack)
-
-for i in stack:
+        for a, b in j:
+            F[a] = "("
+            F[b] = ")"
+        result.append("".join(F))
+result = set(result)
+result = sorted(result)
+for i in result:
     print(i, end="")

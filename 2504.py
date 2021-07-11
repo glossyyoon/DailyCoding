@@ -1,12 +1,12 @@
 import sys
 
-arr = list(sys.stdin.readline())
+func = list(sys.stdin.readline())
 stack = []
-result = 0
-for i in range(len(arr)):
-    if arr[i] == ")":
+
+for i in range(len(func)):
+    if func[i] == ")":
         t = 0
-        while len(stack) != 0:
+        while stack:
             top = stack.pop()
             if top == "(":
                 if t == 0:
@@ -18,10 +18,10 @@ for i in range(len(arr)):
                 print(0)
                 exit(0)
             else:
-                t += int(top)
-    elif arr[i] == "]":
+                t += top
+    elif func[i] == "]":
         t = 0
-        while len(stack) != 0:
+        while stack:
             top = stack.pop()
             if top == "[":
                 if t == 0:
@@ -33,14 +33,7 @@ for i in range(len(arr)):
                 print(0)
                 exit(0)
             else:
-                t += int(top)
+                t += top
     else:
-        stack.append(arr[i])
-
-for i in stack:
-    if i == '[' or i == '(':
-        print(0)
-        exit(0)
-    elif str(i).isdigit():
-        result += int(i)
-print(result)
+        stack.append(func[i])
+print(stack)
