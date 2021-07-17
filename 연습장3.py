@@ -1,11 +1,3 @@
-num = int(input())
+from itertools import combinations
 
-
-def nine(num):
-    a = 1
-    while a != 10:
-        print(num, "*", a, "=", num * a)
-        a += 1
-
-
-nine(num)
+print(list(combinations([, 2, 4], 2)))

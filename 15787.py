@@ -25,7 +25,6 @@ for order in control:
         queue.append(0)
         train[i] = list(queue)
 
-
 count = 1
 pass_train = []
 pass_train.append(train[0])

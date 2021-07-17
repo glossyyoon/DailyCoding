@@ -1,6 +1,7 @@
-5 5
-1 1 1
-1 1 2
-1 2 2
-1 2 3
-3 1
+from itertools import combinations
+
+n = "abcde"
+a = list(combinations(range(1, len(n)), 2))
+print(a)
+for i in range(len(a)):
+    q, p = a[i][0], a[i][1]
