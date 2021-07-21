@@ -1,4 +1,7 @@
-a = list(input().split(','))
-for i in a:
-    print(i)
-10, 310, 7, 21, 5
+n = int(input())
+hap = 0
+i = 1
+while hap < n:
+    hap += i
+    i += 1
+print(i - 1)
