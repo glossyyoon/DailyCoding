@@ -1,4 +1,7 @@
-n = int(input())
-while n != 0:
-    print(n)
-    n = int(input())
+import sys
+n = input()
+while True:
+    if n=="END":
+      sys.exit(0)
+    print(n[::-1])
+    n = input()
