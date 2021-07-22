@@ -1,7 +1,15 @@
-import sys
-n = input()
-while True:
-    if n=="END":
-      sys.exit(0)
-    print(n[::-1])
-    n = input()
+n, m = map(int, input().split())
+
+
+def LCM(a, b, r):
+    return a * b // r
+
+
+def GCD(a, b):
+    if a % b == 0:
+        return LCM(n, m, b)
+    else:
+        return GCD(b, a % b)
+
+
+print(GCD(6, 15))
