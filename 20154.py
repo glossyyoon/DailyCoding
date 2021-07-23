@@ -12,8 +12,3 @@ if c % 2 == 1:
     print("I'm a winner!")
 else:
     print("You're the winner?")
-# i = 0
-# while len(num_s) != 1:
-#     num_s[i] = str(int(num_s[i]) + int(num_s[i + 1]))
-#     num_s[i + 1] = ""
-# print(num_s)
