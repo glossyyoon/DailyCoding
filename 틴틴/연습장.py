@@ -1,2 +1,4 @@
-a = ["A", "B", "C"]
-print(min(a))
+a = [[1], [2]]
+for i in a:
+    for j in i:
+        print(j)
