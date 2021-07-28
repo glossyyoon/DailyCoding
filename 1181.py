@@ -9,5 +9,6 @@ for i in range(n):
     result.append((w, w_count))
 result = list(set(result))
 result.sort(key=lambda word: (word[1], word[0]))
-for w in result:
-    print(w[0], end="")
+print(result)
+# for w in result:
+#     print(w[0], end="")

@@ -1,8 +1,5 @@
-import sys
-
-input = sys.stdin.readline
-s = list(input().rstrip())
-result = [""] * len(s)
+s = list(input())
+r = [""] * len(s)
 
 
 def func(arr, start):
@@ -10,9 +7,8 @@ def func(arr, start):
         return
     minn = min(arr)
     idx = arr.index(minn)
-    print(idx)
-    result[start + idx] = minn
-    print("".join(result))
+    r[start + idx] = minn
+    print("".join(r))
     func(arr[idx + 1 :], start + idx + 1)
     func(arr[:idx], start)
 
