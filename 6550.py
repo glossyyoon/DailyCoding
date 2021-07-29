@@ -8,7 +8,6 @@ def solution(s, t):
     right = 0
     i = 0
     for c in range(len(s)):
-
         while i < len(t):
             if s[c] == t[i]:
                 i += 1

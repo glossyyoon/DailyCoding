@@ -1,3 +1,5 @@
-a = ["1", "1", "2"]
-d = "123"
-print(d[0] in a)
+import re
+
+a = "1231"
+a = re.sub("1", "000", a)
+print(a)
