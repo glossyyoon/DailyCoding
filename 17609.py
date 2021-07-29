@@ -26,19 +26,6 @@ def solution(s):
     if palindrome(s, flag):
         return
     else:
-        # if len(s) % 2 == 0:
-        #     reverseArr = s[: hIdx - 1 : -1]
-        # else:
-        #     reverseArr = s[:hIdx:-1]
-
-        # if hArr == reverseArr and flag==0:
-        #     if flag == 0:
-        #         print(0)
-        #         return True
-        #     else:
-        #         print(1)
-        #         return True
-        # else:
         idx = 0
         flag = 1
         while idx < hIdx:
