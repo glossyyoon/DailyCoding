@@ -1,26 +1,28 @@
-# while True:
-s, t = input().split()
-idx = 0
-sIdx = 0
-flag = False
-while idx < len(t):
-    newarr = t[idx:]
-    for i in range(len(newarr)):
-        if s[sIdx] == newarr[i]:
-            idx = i
-            print(i)
-            sIdx += 1
-            break
-        else:
-            flag = False
-            break
-        break
-if sIdx == len(s):
-    flag = True
-if flag == False:
-    print("No")
-    # break
-else:
+import sys
+
+
+def solution(s, t):
+    if len(s) > len(t):
+        print("No")
+        return
+    right = 0
+    i = 0
+    for c in range(len(s)):
+
+        while i < len(t):
+            if s[c] == t[i]:
+                i += 1
+                break
+            elif i == len(t) - 1:
+                print("No")
+                return
+            i += 1
     print("Yes")
-    # break
-print("Yes")
+
+
+while True:
+    try:
+        s, t = sys.stdin.readline().rstrip().split()
+        solution(s, t)
+    except:
+        break
