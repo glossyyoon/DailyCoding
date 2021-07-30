@@ -1,4 +1,4 @@
-import sys
-
-g = list(map(int, sys.stdin.readline().split()))
-print(g)
+print(35 * 1 + 35 * 36 ** 1 + 35 * 36 ** 2 + 35 * 36 ** 3 + 35 * 36 ** 4)
+60466175
+62193780
+1727605
