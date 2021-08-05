@@ -1,3 +1,3 @@
-from itertools import combinations
-
-print(list(combinations([, 2, 4], 2)))
+n, m = 4, 6
+check = [[False] * m] * n
+print(check)
