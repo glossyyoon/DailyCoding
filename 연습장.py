@@ -1,3 +1,2 @@
-s = "baekjoon"
-p = "joo"
-print(p in s)
+s = "qqqqqaaap"
+print(s.popleft())

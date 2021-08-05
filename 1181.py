@@ -1,14 +1,11 @@
 import sys
 
-input = sys.stdin.readline
-n = int(input())
-result = []
+n = int(sys.stdin.readline())
+arr = []
 for i in range(n):
-    w = str(input())
-    w_count = len(w)
-    result.append((w, w_count))
-result = list(set(result))
-result.sort(key=lambda word: (word[1], word[0]))
-print(result)
-# for w in result:
-#     print(w[0], end="")
+    s = sys.stdin.readline().rstrip()
+    arr.append((s, len(s)))
+arr = list(set(arr))
+arr.sort(key=lambda word: (word[1], word[0]))
+for i in arr:
+    print(i[0])
