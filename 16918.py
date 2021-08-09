@@ -28,6 +28,7 @@ def explode():
     while queue:
         bomb = queue.popleft()
         x, y = bomb[0], bomb[1]
+        arr[x][y] = "."
         for i in range(4):
             nx = x + dx[i]
             ny = y + dy[i]
