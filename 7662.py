@@ -1,39 +1,40 @@
-import sys, heapq
+import sys
+import heapq
 
-t = int(sys.stdin.readline().rstrip())
-for q in range(t):
-    minheap, maxheap = [], []
-    visit = [False] * 1000000
-    k = int(sys.stdin.readline().rstrip())
-    for key in range(k):
-        s, n = sys.stdin.readline().rstrip().split()
-        n = int(n)
-        if s == "I":
-            heapq.heappush(minheap, (n))
-            heapq.heappush(maxheap, (-n))
+
+test = int(input())
+for _ in range(test):
+    max_heap, min_heap = [], []
+    visit = [False] * 1_000_001
+
+    order_num = int(input())
+    for key in range(order_num):
+        order = sys.stdin.readline().rsplit()
+        if order[0] == "I":
+            heapq.heappush(min_heap, (int(order[1]), key))
+            heapq.heappush(max_heap, (int(order[1]) * -1, key))
             visit[key] = True
-            print(minheap, maxheap)
-        elif s == "D":
-            if n == 1:
-                while maxheap and not visit[key]:
-                    heapq.heappop(maxheap)
-                if maxheap:
-                    num = heapq.heappop(maxheap)
-                    visit[key] = False
-            if n == -1:
-                while minheap and not visit[key]:
-                    heapq.heappop(minheap)
-                if minheap:
-                    num = heapq.heappop(minheap)
-                    visit[key] = False
-            print(minheap, maxheap)
 
-    print(minheap, maxheap)
-    while minheap and not visit[key]:
-        heapq.heappop(minheap)
-    while maxheap and not visit[key]:
-        heapq.heappop(maxheap)
-    if minheap and maxheap:
-        print(-maxheap[0][0], minheap[0][1])
+        elif order[0] == "D":
+            if order[1] == "-1":
+                while min_heap and not visit[min_heap[0][1]]:
+                    heapq.heappop(min_heap)
+                if min_heap:
+                    visit[min_heap[0][1]] = False
+                    heapq.heappop(min_heap)
+            elif order[1] == "1":
+                while max_heap and not visit[max_heap[0][1]]:
+                    heapq.heappop(max_heap)
+                if max_heap:
+                    visit[max_heap[0][1]] = False
+                    heapq.heappop(max_heap)
+
+    while min_heap and not visit[min_heap[0][1]]:
+        heapq.heappop(min_heap)
+    while max_heap and not visit[max_heap[0][1]]:
+        heapq.heappop(max_heap)
+
+    if min_heap and max_heap:
+        print(max_heap[0] * -1, min_heap[0])
     else:
         print("EMPTY")
