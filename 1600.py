@@ -50,7 +50,3 @@ def bfs():
 
 
 print(bfs())
-# for i in range(h):
-#     for j in range(w):
-#         print(dist[i][j], end=" ")
-#     print()

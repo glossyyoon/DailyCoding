@@ -1,4 +1,3 @@
-h = 2
-w = 3
-visited = [[False] * h for _ in range(w)]
-print(visited)
+s1 = [1, 2, 3, 4, 5]
+s1 += s1
+print(s1)
