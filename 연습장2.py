@@ -1,31 +1,3 @@
-s1 = [1, 2, 3, 4, 5]
-s2 = [2, 1, 2, 3, 2, 4]
-s3 = [3, 3, 1, 1, 2, 2, 4, 4, 5, 5]
-answers = [1, 2, 3, 4, 5]
-answer = [0, 0, 0]
-for i in range(len(answers)):
-    if i % (len(s1) - 1) == 0:
-        s1 += s1
-    if i % (len(s2) - 1) == 0:
-        s2 += s2
-    if i % (len(s3) - 1) == 0:
-        s3 += s3
-
-    if answers[i] == s1[i]:
-        answer[0] += 1
-    if answers[i] == s2[i]:
-        answer[1] += 1
-    if answers[i] == s3[i]:
-        answer[2] += 1
-
-maxx = max(answer)
-count = 0
-ans = []
-for i in range(3):
-    if answer[i] == maxx:
-        count += 1
-        ans.append(i + 1)
-if count > 1:
-    print(sorted(ans))
-else:
-    print(ans)
+a = "ashwon12 @ naver.com,junyoung44 @ g.skku.edu,hyorin97 @ naver.com,zooey4u @ gmail.com,fn0809 @ gmail.com,jihee.dev @ gmail.com,clack2933 @ gmail.com,ycdoit @ naver.com,xodhkd36 @ naver.com,ayong0310 @ naver.com,s2moon98 @ gmail.com,qkrthfcks1 @ naver.com,vixx170627 @ gmail.com,zzang9ha @ naver.com,hj0816hj @ gmail.com,aliwo @ naver.com,ybell1028 @ gmail.com,goharrm @ ajou.ac.kr,myjb.go @ gmail.com,op04048 @ naver.com,1102933 @ naver.com,cjwcjw26621208 @ gmail.com,lanb2lee @ naver.com,ksj150113 @ gmail.com,mypju1 @ gmail.com,leeesangheee @ gmail.com,yo7504 @ kakao.com, ehdrb345 @ naver.com,della.kimko @ gmail.com,btobang1 @ naver.com,ekgus248 @ naver.com,flowercindy @ naver.com,sunny32777 @ gmail.com,qkrgkdud9080 @ gmail.com,yelamlove @ naver.com,lje9180 @ naver.com,gsw2205 @ gmail.com,ksmfou98 @ naver.com,leejuhae821 @ gmail.com,pjkwprn @ gmail.com,crj0901 @ gmail.com,rudwls468 @ gmail.com"
+b = list(a.split(","))
+print(len(b))
