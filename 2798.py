@@ -17,4 +17,5 @@ for i in range(n - 2):
                 a, b, c = cards[i], cards[j], cards[k]
 if check:
     print(a + b + c)
-    print(a, b, c)
+else:
+    print(0)
