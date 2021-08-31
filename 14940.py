@@ -26,9 +26,6 @@ def bfs(queue):
             nx = x + dx[i]
             ny = y + dy[i]
             if 0 <= nx < n and 0 <= ny < m:
-                # if nx == destination[0] and ny == destination[1]:
-                #     dist[nx][ny] = dist[x][y] + 1
-                # break
                 if not check[nx][ny] and road[nx][ny] == 1:
                     dist[nx][ny] = dist[x][y] + 1
                     queue.append((nx, ny))
@@ -43,12 +40,7 @@ for i in range(n):
             queue1.append((i, j))
             check[i][j] = True
             dist[i][j] = 0
-# while queue1:
-#     x, y = queue1.popleft()
-#     new_queue = deque()
-#     new_queue.append((x, y))
-#     dist[x][y] = 0
-#     bfs(new_queue)
+
 bfs(queue1)
 for i in range(n):
     for j in range(m):
