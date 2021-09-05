@@ -11,13 +11,13 @@ def solution(p):
     initP = p
     n = 2  # 횟수
     count = 1
-    print(people[p % a])
+    # print(people[p % a], "count=", count)
     for j in range(10000):
         if count == t:
             return people[p % a]
         p += 2
         count += 1
-        # print(people[p % a])
+        # print(people[p % a], "count=", count)
         if count == t:
             return people[p % a]
         p += 1
@@ -25,25 +25,27 @@ def solution(p):
             for i in range(n):
                 p += 1
                 count += 1
-                print(people[p % a])
+                # print(people[p % a])
                 if count == t:
                     return people[p % a]
             p = p + n
             p += 1
             count += 1
-            print(people[p % a])
+            # print(people[p % a])
         elif initP == 1:
             p = p + n
+            p -= 1
             for i in range(n):
                 p += 1
                 count += 1
-                print(people[p % a])
+                # print(people[p % a], "count=", count)
                 if count == t:
                     return people[p % a]
-            p += 1
+            p += 2
             count += 1
             if count == t:
                 return people[p % a]
+            # print(people[p % a], "count=", count)
 
         n += 1
 
