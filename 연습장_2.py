@@ -1,14 +1,4 @@
-def isPrimeNum(num):
-    n = 2
-    if num == 2 or num == 3:
-        return True
-    while n != num:
-        if num % n == 0:
-            return False
-        else:
-            n += 1
-            num
-    return True
-
-
-print(isPrimeNum(5))
+a = "."
+print(a[0])
+print(a[-1])
+print(a[:-1])
