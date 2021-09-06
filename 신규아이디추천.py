@@ -16,20 +16,19 @@ def solution(new_id):
     for i in l:
         answer += i
     a = list(answer)
-    result = "" + a[0]
-    cur = a[0]
+    if len(a) > 0:
+        result = a[0]
+    else:
+        result = ""
     for i in range(1, len(a)):
-        if a[i] == cur:
+        if a[i] == "." and a[i - 1] == ".":
             continue
-        elif a[i] != " " and a[i] != cur:
-            cur = a[i]
-            result += cur
-    print(result)
+        else:
+            result += a[i]
     a = result
     answer = ""
     for i in a:
         answer += str(i)
-    print(answer)
     # 4
     if len(answer) >= 1 and answer[0] == ".":
         answer = answer[1:]
@@ -50,4 +49,4 @@ def solution(new_id):
     return answer
 
 
-print(solution("...!@BaT#*..y.abcdefghijklm"))
+print(solution("aaaaaaaaaaaaaaaa"))
