@@ -27,22 +27,30 @@ def bfs(v):
     que.append((v, time))
     believe[v] = 1  # 유포자는 루머를 믿음
     dist[v] = 0  # 유포자는 0초 걸림
+    state = [0] * n
     while que:
         curr, time = que.popleft()  # 1, 0
         for i in graph[curr]:  # 2,3
-            if i not in visited:
-                count = 0
-                for s in graph[i]:
-                    if believe[s] == 1:
-                        count += 1
-                half = len(graph[i]) * 0.5
-                if half <= count:
-                    dist[i] = time
-                    believe[i] = 1
-                    visited.append(i)
-                    que.append((i, time + 1))
+            for check_num in graph[curr]:
+                state[check_num] += 1
+                if believe[check_num] == -1:
+                    if state[check_num] * 2 >= len(graph[check_num]):
+                        visited.append(check_num)
+                        believe[check_num] = believe[curr] + 1
+            # time += 1
+            # if i not in visited:
+            #     count = 0
+            #     for s in graph[i]:
+            #         if believe[s] == 1:
+            #             count += 1
+            #     half = len(graph[i]) * 0.5
+            #     if half <= count:
+            #         dist[i] = time
+            #         believe[i] = 1
+            #         visited.append(i)
+            #         que.append((i, time + 1))
 
-    return dist
+    return state
 
 
 for i in range(m):  # 루머를 퍼트린 사람의 수 만큼

@@ -41,3 +41,4 @@ for _ in range(t):
                 bfss(i, j)
                 count += 1
     print(count)
+isalnum
