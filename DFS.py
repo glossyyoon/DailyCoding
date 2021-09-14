@@ -1,25 +1,25 @@
-number = 7
-c = [False]*8
-a = [[]]*8
-def dfs(start):
-    c[start]=1
-    a.append(start)
-    for e in sorted(a[start]):
-        if c[e]==0:
-            dfs(e)
-    
-a[1].append(2)
-a[2].append(1)
-a[1].append(3)
-a[3].append(1)
-a[2].append(4)
-a[4].append(2)
-a[2].append(3)
-a[3].append(2)
-a[2].append(5)
-a[5].append(2)
-a[6].append(3)
-a[3].append(6)
-a[3].append(7)
-a[7].append(3)
-dfs(1)
+graph = {1: [2, 3, 4], 2: [5], 3: [5], 4: [], 5: [6, 7], 6: [], 7: [3]}
+
+
+def recursive_dfs(v, discovered):  # 사전식으로 방문
+    print(v, end=" ")
+    discovered.append(v)
+    for i in graph[v]:
+        if i not in discovered:
+            recursive_dfs(i, discovered)
+
+
+def stack_dfs(v):  # 역순으로 방문
+    discorverd = []
+    stack = [v]
+    while stack:
+        v = stack.pop()
+        if v not in discorverd:
+            discorverd.append(v)
+            for i in graph[v]:
+                stack.append(i)
+    return discorverd
+
+
+recursive_dfs(1, [])
+print(stack_dfs(1))

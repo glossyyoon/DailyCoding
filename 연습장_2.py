@@ -1,29 +1,25 @@
-import sys 
-from collections import defaultdict 
-# sys.setrecursionlimit(10**6)
-def dfs(u, visited):
-    visited.add(u)
-    checked[u] = 1 
-    for v in g[u]: 
-        if v not in visited:
-            dfs(v, visited.copy()) 
-        else: # 사이클이 생기면 뽑는다. 
-            result.extend(list(visited)) 
-            print(result)
-            return 
-n = int(sys.stdin.readline().strip()) 
-g = defaultdict(list)
-for i in range(1, n+1): 
-    v = int(sys.stdin.readline().strip()) 
-    g[v].append(i) 
-    checked = [0 for _ in range(n+1)] 
-    result = [] 
+def shiftingLetters(s, shifts) -> str:
+    answer = [0 for _ in range(len(s))]
+    n = 0
+    for shift in range(len(shifts)):
+        for i in range(n + 1):
+            if answer[i] == 0:
+                if ord(s[i]) + shifts[shift] > ord("z"):
+                    answer[i] = ord(s[i]) + shifts[shift] - ord("z") + ord("a") - 1
+                else:
+                    answer[i] = ord(s[i]) + shifts[shift]
+            else:
+                if ord(s[i]) + shifts[shift] > ord("z"):
+                    answer[i] += shifts[shift] - (ord("z")) + ord("a") - 1
+                else:
+                    answer[i] += shifts[shift]
+        n += 1
+        a = ""
+    print(answer)
+    for ans in answer:
+        a += chr(ans)
+    return a
 
-for i in range(1, n+1): 
-    if not checked[i]: 
-        dfs(i, set([])) 
-    result.sort() 
 
-print(len(result)) 
-for x in result: 
-    print(x)
+print(shiftingLetters("abc", [3, 5, 9]))
+print(shiftingLetters("bad", [10, 20, 30]))
