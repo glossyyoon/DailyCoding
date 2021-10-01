@@ -1,3 +1,4 @@
+# 지윤
 def solution(weights, head2head):
     player = []
     for idx, l in enumerate(head2head):
@@ -18,7 +19,6 @@ def solution(weights, head2head):
 
     player = sorted(player, key=lambda x: (-x[0], -x[1], -x[2], x[3]))
     answer = list(player[i][3] + 1 for i in range(len(weights)))
-
     return answer
 
 
