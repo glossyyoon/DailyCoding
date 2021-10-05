@@ -1,4 +1,2 @@
-a = 1
-print(++a)
-print(a++)
-print(a)
+a = "Hello WOrld"
+print(a.capitalize())
