@@ -1,2 +1,3 @@
-a = {"a": 1}
-print(a.pop("a"))
+num = [3, 6, 2]
+
+print(sorted(num))
