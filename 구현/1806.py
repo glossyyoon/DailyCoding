@@ -9,7 +9,6 @@ left, right = 0, 0
 while True:
     if sum >= S:
         minLength = min(minLength, right - left)
-        print(left, right)
         sum = sum - nums[left]
         left += 1
     elif right == N:
