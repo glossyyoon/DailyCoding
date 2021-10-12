@@ -1,2 +1,1 @@
-a = "Hello WOrld"
-print(a.capitalize())
+print(bin(78))
