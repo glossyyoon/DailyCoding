@@ -2,10 +2,7 @@ def sor(nums):
     answer = []
     nums.sort()
     for i in range(len(nums) - 2):
-        if i > 0 and nums[i] == nums[i - 1]:
-            continue
         left, right = i + 1, len(nums) - 1
-
         while left < right:
             sum = nums[i] + nums[left] + nums[right]
             if sum < 0:
@@ -23,4 +20,4 @@ def sor(nums):
     return answer
 
 
-print(sor([0, 0, 0, 0, 0]))
+print(sor([-1, 0, 1, 2, -1, -4]))
