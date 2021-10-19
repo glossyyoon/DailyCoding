@@ -1,12 +1,11 @@
-def productExceptSelf(self, nums: List[int]) -> List[int]:
-    answer = []
-    num = 1
-    for i in range(len(nums)):
-        answer.append(num)
-        num = num * nums[i]
-    num = 1
-    for i in range(len(nums) - 1, -1, -1):
-        answer[i] = answer[i] * num
-        num = num * nums[i]
+def productExceptSelf(nums):
+    answers1 = [1] * len(nums)
+    answers2 = [1] * len(nums)
+    for i in range(1, len(nums)):
+        answers1[i] = nums[i - 1] * answers1[i - 1]
+    for i in range(len(nums) - 2, -1, -1):
+        answers2[i] = nums[i + 1] * answers2[i + 1]
+    return [answers1[i] * answers2[i] for i in range(len(nums))]
 
-    return answer
+
+print(productExceptSelf([1, 2, 3, 4]))
