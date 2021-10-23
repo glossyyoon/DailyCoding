@@ -30,6 +30,7 @@ while True:
             d -= 1
             if d == -1:
                 d = 3
+
         else:
             d += 1
             if d == 4:
