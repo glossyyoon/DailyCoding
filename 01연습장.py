@@ -1,6 +1,5 @@
-import sys
 
-n = sys.stdin.readline().rstrip()
+a = [1]
+b = [2, 3]
+print(a or b)
 
-k = sys.stdin.readline().rstrip()
-print(n, k)
