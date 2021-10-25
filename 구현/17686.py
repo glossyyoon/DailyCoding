@@ -1,31 +1,13 @@
 import re
 
 
-def headNumber(f):
-    for i in range(len(f)):
-        if f[i].isdigit():
-            return i
-
-
-def numberTail(f):
-    for i in range(len(f)):
-        if not f[i].isdigit():
-            return i
-
-
 def solution(files):
     answer = []
-    for idx in range(len(files)):
-        head, rest = (
-            files[idx][: headNumber(files[idx])],
-            files[idx][headNumber(files[idx]) :],
-        )
-        head = head.lower()
-        number, tail = rest[: numberTail(rest)], rest[numberTail(rest) :]
-        number = int(number)
-        files[idx] = (files[idx], head, number)
-    files.sort(key=lambda file: (file[1], file[2]))
-    return [file[0] for file in files]
+    for file in files:
+        foundFile = re.findall(r"([^\d]+)([\d]{1,5})(.+)?", file, flags=re.I)[0]
+        answer.append(foundFile)
+    answer = sorted(answer, key=lambda x: (x[0], int(x[1])))
+    return list(map(lambda x: "".join(x), answer))
 
 
 print(

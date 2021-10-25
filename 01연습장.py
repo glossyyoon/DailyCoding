@@ -1,5 +1,4 @@
+import collections
 
-a = [1]
-b = [2, 3]
-print(a or b)
-
+a = "cbacdcbc"
+print(collections.Counter(a))
