@@ -14,8 +14,10 @@ direction = []
 for _ in range(l):
     x, c = input().rstrip().split()
     direction.append((int(x), c))
+
 dx = [0, -1, 0, 1]
 dy = [1, 0, -1, 0]
+
 x, c = direction[0]
 tail = deque()
 tail.append((0, 0))
@@ -24,12 +26,14 @@ maps[i][j] = -1
 idx = 1
 time = 0
 d = 0
+
 while True:
     if time == x:
         if c == "D":
             d -= 1
             if d == -1:
                 d = 3
+
         else:
             d += 1
             if d == 4:
